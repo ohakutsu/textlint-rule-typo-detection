@@ -1,6 +1,6 @@
 {
   "name": "textlint-rule-typo-detection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "textlint rule that detect typo.",
   "keywords": [
     "textlintrule"
