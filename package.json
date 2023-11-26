@@ -1,0 +1,57 @@
+{
+  "name": "textlint-rule-typo-detection",
+  "version": "0.1.0",
+  "description": "textlint rule that detect typo.",
+  "keywords": [
+    "textlintrule"
+  ],
+  "homepage": "https://github.com/ohakutsu/textlint-rule-typo-detection",
+  "bugs": {
+    "url": "https://github.com/ohakutsu/textlint-rule-typo-detection/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ohakutsu",
+    "url": "https://twitter.com/ohakutsu"
+  },
+  "files": [
+    "lib/"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ohakutsu/textlint-rule-typo-detection.git"
+  },
+  "scripts": {
+    "build": "textlint-scripts build",
+    "clean": "rm -fr lib/",
+    "fix": "pnpm run fix:prettier",
+    "fix:prettier": "prettier --list-different --write .",
+    "lint": "concurrently -n 'prettier,typecheck' 'pnpm run lint:prettier' 'pnpm run lint:typecheck'",
+    "lint:prettier": "prettier --check .",
+    "lint:typecheck": "tsc --noEmit",
+    "prepublish": "pnpm run clean && pnpm run build",
+    "test": "concurrently -n 'unit,textlint' 'pnpm run test:unit' 'pnpm run test:textlint'",
+    "test:textlint": "textlint-scripts test",
+    "test:unit": "jest"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@textlint/types": "^13.4.1",
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.2",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.0",
+    "textlint-scripts": "^13.4.1",
+    "textlint-tester": "^13.4.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.2"
+  },
+  "peerDependencies": {
+    "textlint": ">=13.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "pnpm@8.11.0"
+}
