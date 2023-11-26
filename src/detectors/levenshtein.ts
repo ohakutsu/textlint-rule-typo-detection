@@ -7,12 +7,12 @@ export class LevenshteinDetector extends BaseDetector {
     const result: DetectResult[] = [];
 
     this.tokens.forEach((token) => {
+      if (this.dictionary.some((word) => word === token.str)) {
+        return;
+      }
+
       const candidates = this.dictionary.filter((word) => {
         const distance = calcLevenshteinDistance(token.str, word);
-        if (distance === 0) {
-          return false;
-        }
-
         return distance <= this.threshold;
       });
 

@@ -12,6 +12,12 @@ tester.run("textlint-rule-typo-detection", rule, {
         dictionary: ["world"],
       },
     },
+    {
+      text: "achieve",
+      options: {
+        dictionary: ["achieve", "achieved"],
+      },
+    },
   ],
   invalid: [
     {
